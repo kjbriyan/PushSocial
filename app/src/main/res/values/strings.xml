@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">SocialApps</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="signup">Sign Up</string>
+    <string name="nama">Nama</string>
+    <string name="registrasi">Registrasi</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="komentar">Komentar</string>
+</resources>

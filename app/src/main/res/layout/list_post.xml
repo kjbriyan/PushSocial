@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="@color/white"
+    android:id="@+id/ln_barang"
+    android:layout_margin="@dimen/_5sdp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+    <ImageView
+        android:layout_width="@dimen/_80sdp"
+        android:layout_height="@dimen/_80sdp"
+        android:src="@drawable/ic_launcher_foreground"
+        android:layout_margin="@dimen/_5sdp"
+        android:id="@+id/iv_barang"/>
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_keterangan"
+            style="@style/muliBoldMedium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_5sdp"
+            android:maxLines="4"
+            android:textColor="@color/black"
+            android:text="Keterangan Keterangan Keterangan Keterangan Keterangan Keterangan Keterangan Keterangan Keterangan" />
+    </LinearLayout>
+<!--    <LinearLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_margin="@dimen/_20sdp"-->
+<!--        android:orientation="horizontal"-->
+<!--        android:gravity="center">-->
+
+<!--&lt;!&ndash;        <com.like.LikeButton&ndash;&gt;-->
+<!--&lt;!&ndash;            android:id="@+id/star_button"&ndash;&gt;-->
+<!--&lt;!&ndash;            android:layout_width="wrap_content"&ndash;&gt;-->
+<!--&lt;!&ndash;            android:layout_height="wrap_content"&ndash;&gt;-->
+<!--&lt;!&ndash;            app:icon_size="15dp"&ndash;&gt;-->
+<!--&lt;!&ndash;            app:icon_type="heart"&ndash;&gt;-->
+<!--&lt;!&ndash;            android:visibility="invisible"&ndash;&gt;-->
+<!--&lt;!&ndash;            app:layout_constraintBottom_toBottomOf="parent"&ndash;&gt;-->
+<!--&lt;!&ndash;            app:layout_constraintTop_toTopOf="parent"&ndash;&gt;-->
+<!--&lt;!&ndash;            tools:ignore="MissingConstraints" />&ndash;&gt;-->
+
+<!--        <ImageButton-->
+<!--            android:id="@+id/komen_button"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:backgroundTint="@android:color/transparent"-->
+<!--            android:src="@drawable/chat"-->
+<!--            android:layout_gravity="center"-->
+<!--            android:foregroundGravity="center"-->
+<!--            />-->
+<!--    </LinearLayout>-->
+
+
+
+
+</androidx.appcompat.widget.LinearLayoutCompat>
