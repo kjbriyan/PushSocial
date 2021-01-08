@@ -43,13 +43,13 @@
                 android:src="@drawable/ic_launcher_foreground" />
 
             <com.google.android.material.textview.MaterialTextView
+                android:textColor="@color/black"
                 android:id="@+id/tv_keterangan"
                 style="@style/muliBoldMedium"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/_5sdp"
                 android:gravity="center"
-                android:maxLines="4"
                 android:text="Keterangan Keterangan Keterangan Keterangan Keterangan Keterangan
                 Keterangan Keterangan Keterangan" />
             <LinearLayout
@@ -65,7 +65,7 @@
                     android:textStyle="bold"
                     android:layout_gravity="center"
                     android:textSize="@dimen/_18ssp"
-                    android:textColor="@color/white"/>
+                    android:textColor="@color/black"/>
                 <androidx.cardview.widget.CardView
                     android:layout_margin="@dimen/_10sdp"
                     android:layout_width="match_parent"
@@ -99,6 +99,7 @@
                     android:layout_gravity="center"/>
 
                 <LinearLayout
+                    android:backgroundTint="@color/md_blue_grey_50"
                     android:orientation="horizontal"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -107,6 +108,8 @@
                     android:gravity="center">
 
                     <EditText
+                        android:textColorHint="@color/black"
+                        android:background="@color/colorOnBackground"
                         android:id="@+id/et_komenn"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
