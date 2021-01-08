@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    android:background="@color/white"
-    android:outlineSpotShadowColor="@color/black"
-    android:outlineAmbientShadowColor="@color/black"
-    android:outlineProvider="background"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:backgroundTint="@color/white"
+    card_view:cardCornerRadius="10dp"
+    card_view:cardElevation="10dp"
     android:id="@+id/ln_barang"
     android:layout_margin="@dimen/_5sdp">
 
@@ -65,4 +66,4 @@
 
 
 
-</androidx.appcompat.widget.LinearLayoutCompat>
+</androidx.cardview.widget.CardView>
