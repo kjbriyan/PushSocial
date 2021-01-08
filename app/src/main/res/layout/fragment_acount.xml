@@ -9,9 +9,10 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:gravity="center"
-        android:background="@color/colorOnBackground"
+        android:background="@color/white"
         android:layout_height="match_parent">
     <LinearLayout
+        android:padding="@dimen/_10sdp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
@@ -20,7 +21,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:background="@color/white"
+        android:background="@color/colorOnBackground"
         app:layout_constraintTop_toTopOf="parent">
 
     <com.google.android.material.textfield.TextInputLayout
@@ -28,9 +29,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:helperTextTextColor="@color/md_red_200"
-        app:boxBackgroundColor="@color/white"
-        android:textColorHint="@color/black"
-        app:hintTextColor="@color/black"
+        app:boxBackgroundColor="@color/colorOnBackground"
+        android:textColorHint="@color/white"
+        app:hintTextColor="@color/white"
         app:layout_constraintTop_toBottomOf="@+id/iv_logo">
 
         <EditText
@@ -39,7 +40,7 @@
             android:layout_height="wrap_content"
             android:hint="@string/username"
             android:inputType="text"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
             android:maxLines="1"
             />
 
@@ -50,9 +51,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:helperTextTextColor="@color/md_red_200"
-        app:hintTextColor="@color/black"
-        android:textColorHint="@color/black"
-        app:boxBackgroundColor="@color/white"
+        app:hintTextColor="@color/white"
+        android:textColorHint="@color/white"
+        app:boxBackgroundColor="@color/colorOnBackground"
         app:layout_constraintBottom_toTopOf="@+id/btn_login"
         app:passwordToggleEnabled="true">
 
@@ -62,7 +63,7 @@
             android:layout_height="wrap_content"
             android:hint="@string/password"
             android:inputType="textPassword"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
             android:maxLines="1"
             />
 
@@ -90,7 +91,7 @@
             android:id="@+id/tv_logout"
             android:textStyle="bold"
             android:layout_margin="@dimen/_10sdp"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
             android:layout_gravity="end"/>
 
         <ProgressBar
