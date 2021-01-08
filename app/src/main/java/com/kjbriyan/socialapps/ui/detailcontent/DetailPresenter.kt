@@ -19,7 +19,7 @@ class DetailPresenter (private val mView : DetailView){
                             response: Response<ResponsePosting>
                     ) {
                         val res = response.body()
-                        mView.onDatasukses(res?.data)
+                        mView.onDatasukses(res?.data?.get(0)?.ket)
                         mView.onHideloading()
                     }
 

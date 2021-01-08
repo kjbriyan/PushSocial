@@ -8,8 +8,8 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="colorPrimary">#FFE284</color>
-    <color name="colorPrimaryDark">@color/md_green_400</color>
-    <color name="colorAccent">@color/md_green_400</color>
+    <color name="colorPrimaryDark">@color/white</color>
+    <color name="colorAccent">@color/white</color>
     <color name="colorOnBackground">#FFE284</color>
 
 

@@ -2,10 +2,13 @@ package com.kjbriyan.socialapps.ui.fragment.acount
 
 import android.content.DialogInterface
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import com.kjbriyan.socialapps.R
@@ -15,6 +18,7 @@ import com.kjbriyan.socialapps.util.Helper
 import com.kjbriyan.socialapps.util.SharedPrefs
 import com.pixplicity.easyprefs.library.Prefs
 import es.dmoral.toasty.Toasty
+import kotlinx.android.synthetic.main.fragment_acount.*
 import kotlinx.android.synthetic.main.fragment_acount.view.*
 
 // TODO: Rename parameter arguments, choose names that match
@@ -41,16 +45,21 @@ class AcountFragment : Fragment(),AcountView {
     ): View? {
         // Inflate the layout for this fragment
         val v = inflater.inflate(R.layout.fragment_acount, container, false)
+
+        val id = Prefs.getString(SharedPrefs.idUser, "").toString()
+        val name = v.findViewById<EditText>(R.id.et_name)?.text
+        val pas = v.findViewById<EditText>(R.id.et_pass)?.text
+        val btn = v.findViewById<Button>(R.id.btn_kirim)
+        val presenter = AcountPresenter(this)
+
+        v.btn_kirim.setOnClickListener {
+            presenter.update(id,name.toString(),pas.toString())
+            Log.d("sianu",""+pas.toString())
+        }
         v.tv_logout.setOnClickListener {
             logout()
         }
-        val id = Prefs.getString(SharedPrefs.idUser, "").toString()
-        val name = v.et_name.text
-        val pas = v.et_pass.text
-        val presenter = AcountPresenter(this)
-        v.btn_kirim.setOnClickListener {
-            presenter.update(id,name.toString(),pas.toString())
-        }
+
         return v
     }
 
@@ -88,7 +97,7 @@ class AcountFragment : Fragment(),AcountView {
     }
 
     override fun onHideloading() {
-        view?.pb_acc?.visibility = View.INVISIBLE
+        view?.pb_acc?.visibility = View.GONE
     }
 
     override fun onSendSukses(t: ResponseStatus?) {

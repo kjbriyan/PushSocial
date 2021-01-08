@@ -8,13 +8,19 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:gravity="center"
+        android:background="@color/colorOnBackground"
+        android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:gravity="center"
         android:orientation="vertical"
         android:layout_margin="@dimen/_30sdp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        android:background="@color/white"
         app:layout_constraintTop_toTopOf="parent">
 
     <com.google.android.material.textfield.TextInputLayout
@@ -27,7 +33,7 @@
         app:hintTextColor="@color/black"
         app:layout_constraintTop_toBottomOf="@+id/iv_logo">
 
-        <com.google.android.material.textfield.TextInputEditText
+        <EditText
             android:id="@+id/et_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -50,7 +56,7 @@
         app:layout_constraintBottom_toTopOf="@+id/btn_login"
         app:passwordToggleEnabled="true">
 
-        <com.google.android.material.textfield.TextInputEditText
+        <EditText
             android:id="@+id/et_pass"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -63,16 +69,17 @@
     </com.google.android.material.textfield.TextInputLayout>
 
 
-        <com.google.android.material.button.MaterialButton
+        <Button
             android:id="@+id/btn_kirim"
             android:layout_marginBottom="@dimen/_8sdp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="@dimen/_16sdp"
             android:text="Kirim"
+            android:backgroundTint="@color/md_green_400"
             style="@style/muliBoldNormal"
             android:textAllCaps="false"
-            android:textColor="@color/colorPrimaryDark"
+            android:textColor="@color/white"
             app:cornerRadius="@dimen/_64sdp"
             />
         <TextView
@@ -82,6 +89,8 @@
             style="@style/fontLarge"
             android:id="@+id/tv_logout"
             android:textStyle="bold"
+            android:layout_margin="@dimen/_10sdp"
+            android:textColor="@color/black"
             android:layout_gravity="end"/>
 
         <ProgressBar
@@ -92,9 +101,9 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             android:background="@xml/progres"
-            android:visibility="invisible"
+            android:visibility="gone"
             android:layout_gravity="center"/>
 
     </LinearLayout>
-
+    </LinearLayout>
 </FrameLayout>

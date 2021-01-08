@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
+import android.widget.EditText
 import android.widget.LinearLayout
 import android.widget.ProgressBar
 import android.widget.Toast
@@ -16,6 +17,7 @@ import com.kjbriyan.socialapps.R
 import com.kjbriyan.socialapps.ResponseStatus
 import com.kjbriyan.socialapps.adapter.RvAdapterKomen
 import com.kjbriyan.socialapps.model.DataItems
+import com.kjbriyan.socialapps.model.KetItem
 import com.kjbriyan.socialapps.util.SharedPrefs
 import com.pixplicity.easyprefs.library.Prefs
 import com.squareup.picasso.Picasso
@@ -45,9 +47,11 @@ class DetailActivity : AppCompatActivity(), DetailView {
         val presenter = DetailPresenter(this)
         val id = intent.extras?.getString("id").toString()
         val name = Prefs.getString(SharedPrefs.name, "").toString()
+
         btn_komen.setOnClickListener {
-            val komen = et_komenn.text.toString()
-            presenter.postdata(id,"komen","",name)
+            val komen = findViewById<EditText>(R.id.et_komenn).text.toString()
+            Log.d("sitom"," "+komen)
+            presenter.postdata(id,komen,"",name)
         }
 
         Picasso.get().load(Initretrofit().IMAGE + intent.extras?.getString("img")).into(iv_post)
@@ -62,12 +66,12 @@ class DetailActivity : AppCompatActivity(), DetailView {
         pb_dash.visibility = View.INVISIBLE
     }
 
-    override fun onDatasukses(t: List<DataItems>?) {
+    override fun onDatasukses(t: List<KetItem>?) {
         if (t != null) {
 
             val adapaterr = RvAdapterKomen(t)
-            Log.d("lia", "aa  "+t.get(0).ket?.get(0)?.username)
-            val uname = t.get(0).ket?.get(0)?.username
+            Log.d("lia", "aa  "+t.get(0).username)
+            val uname = t.get(0).username
 //            if ()
             rv_komen.adapter = RvAdapterKomen(t)
         } else {

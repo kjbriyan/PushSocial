@@ -26,8 +26,8 @@ interface ApiInterface {
     @POST("authen/update/{id}")
     fun userUpdate(
             @Path("id") id: String,
-            @Field("uname") email: String,
-            @Field("pass") password: String
+            @Field("username") email: String,
+            @Field("password") password: String
     ): Call<ResponseStatus>
 
     @GET("post/indexx")

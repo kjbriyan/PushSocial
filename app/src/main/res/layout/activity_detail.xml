@@ -19,6 +19,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        android:visibility="invisible"
         app:layout_constraintVertical_bias="0.0" />
     <ScrollView
         android:id="@+id/scrollView2"
@@ -88,7 +89,7 @@
                     android:layout_gravity="center"/>
 
                 <LinearLayout
-                    android:orientation="vertical"
+                    android:orientation="horizontal"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="@dimen/_20sdp"
@@ -104,7 +105,6 @@
                         android:inputType="text"
                         android:maxLines="5"
                         android:scrollbars="vertical"
-
                         android:textColor="@color/black" />
 
                     <ImageView
