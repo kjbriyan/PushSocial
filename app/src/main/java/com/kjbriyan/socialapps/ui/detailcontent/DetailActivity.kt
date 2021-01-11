@@ -81,8 +81,10 @@ class DetailActivity : AppCompatActivity(), DetailView {
     }
 
     override fun onSendSukses(t: ResponseStatus?) {
+        val komen = findViewById<EditText>(R.id.et_komenn).text.toString()
         Toasty.success(this, t?.status.toString(), Toast.LENGTH_SHORT).show()
         val presenter = DetailPresenter(this@DetailActivity)
+        komen.isEmpty()
         val id = intent.extras?.getString("id")
         presenter.getdata(id.toString())
     }
