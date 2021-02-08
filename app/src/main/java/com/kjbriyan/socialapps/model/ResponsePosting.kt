@@ -18,6 +18,8 @@ data class DataItems(
 	val img: Any? = null,
 	val nama: String? = null,
 	val id: String? = null,
-	val ket: List<KetItem>? = null
+	val ket: List<KetItem>? = null,
+	val jmlLike: String? = null,
+	val jmlCmn: String? = null
 )
 

@@ -22,6 +22,8 @@ import androidx.core.content.ContextCompat
 import com.kjbriyan.socialapps.R
 import com.kjbriyan.socialapps.ResponseStatus
 import com.kjbriyan.socialapps.util.Helper
+import com.kjbriyan.socialapps.util.SharedPrefs
+import com.pixplicity.easyprefs.library.Prefs
 import es.dmoral.toasty.Toasty
 import kotlinx.android.synthetic.main.activity_add_post.*
 import java.io.*
@@ -46,13 +48,14 @@ class AddPostActivity : AppCompatActivity(), AdditemView {
         }
 
         private fun actionclick(){
+            val iduser = Prefs.getString(SharedPrefs.idUser, "").toString()
             findViewById<Button>(R.id.btn_update)?.setOnClickListener {
                 val bitmap: Bitmap
                 iv_barang?.setDrawingCacheEnabled(true)
                 bitmap = iv_barang!!.drawingCache
                 val img = Helper().getEncoded64ImageStringFromBitmap(bitmap)
-                Log.d(TAG,et_nama.text.toString()+et_stock?.text.toString())
-                presenter.addItem( et_nama.text.toString(), et_stock?.text.toString(), img)
+                Log.d(TAG,"aa"+ iduser)
+                presenter.addItem( et_nama.text.toString(), et_stock?.text.toString(), img,iduser)
             }
             iv_barang.setOnClickListener {
                 val dialogitem =

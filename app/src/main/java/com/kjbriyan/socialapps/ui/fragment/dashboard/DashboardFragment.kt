@@ -18,6 +18,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.kjbriyan.socialapps.R
 import com.kjbriyan.socialapps.adapter.RvAdapterPost
 import com.kjbriyan.socialapps.model.DataItems
+import com.kjbriyan.socialapps.model.DataItemss
 import com.kjbriyan.socialapps.ui.additem.AddPostActivity
 import com.kjbriyan.socialapps.util.Helper
 import com.kjbriyan.socialapps.util.SharedPrefs
@@ -91,13 +92,12 @@ class DashboardFragment : Fragment(),DashboardView {
         view?.findViewById<ProgressBar>(R.id.pb_dash)?.visibility = View.GONE
     }
 
-    override fun onDataloaded(results: List<DataItems>?) {
+    override fun onDataloaded(results: List<DataItemss>?) {
         if (results!!.isNotEmpty()) {
             adapterr = RvAdapterPost(results)
             activity.let {
                 with(recyclerView) {
                     adapter = adapterr
-
 
                 }
             }

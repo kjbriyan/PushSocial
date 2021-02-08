@@ -1,5 +1,6 @@
 package com.kjbriyan.socialapps
 
+import com.kjbriyan.socialapps.model.ResponseDashboard
 import com.kjbriyan.socialapps.model.ResponsePosting
 import retrofit2.Call
 import retrofit2.http.*
@@ -31,10 +32,10 @@ interface ApiInterface {
     ): Call<ResponseStatus>
 
     @GET("post/indexx")
-    fun getPost(): Call<ResponsePosting>
+    fun getPost(): Call<ResponseDashboard>
 
     @POST("post/index/{id}")
-    fun getLike(
+    fun getkomen(
             @Path("id") id : String
     ): Call<ResponsePosting>
 
@@ -44,12 +45,22 @@ interface ApiInterface {
     fun insertpost(
         @Field("nama") nama: String,
         @Field("keterangan") keterangan: String,
-        @Field("img") img: String?
+        @Field("img") img: String?,
+        @Field("id_user")iduser: String?
     ): Call<ResponseStatus>
 
     @FormUrlEncoded
     @POST("oke/postlike")
     fun insertkomen(
+        @Field("suka") suka: String,
+        @Field("komen") komen: String,
+        @Field("id_posting") id_post: String,
+        @Field("username") username: String?
+    ): Call<ResponseStatus>
+
+    @FormUrlEncoded
+    @POST("oke/postlike")
+    fun liked(
         @Field("suka") suka: String,
         @Field("komen") komen: String,
         @Field("id_posting") id_post: String,

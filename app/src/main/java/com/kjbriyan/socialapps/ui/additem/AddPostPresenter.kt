@@ -9,9 +9,9 @@ import retrofit2.Response
 class AddPostPresenter (private val mView : AdditemView) {
     private val TAG ="AddItem"
 
-    fun addItem(nama : String, keterangan : String, img : String?){
+    fun addItem(nama : String, keterangan : String, img : String?,iduser : String?){
         mView.onShowloading()
-        Initretrofit().getInstance().insertpost(nama,keterangan,img)
+        Initretrofit().getInstance().insertpost(nama,keterangan,img,iduser)
             .enqueue(object : Callback<ResponseStatus> {
                 override fun onResponse(
                     call: Call<ResponseStatus>,

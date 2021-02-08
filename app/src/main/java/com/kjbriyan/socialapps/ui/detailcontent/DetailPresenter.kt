@@ -12,7 +12,7 @@ class DetailPresenter (private val mView : DetailView){
 
     fun getdata(id : String){
         mView.onLoading()
-        Initretrofit().getInstance().getLike(id)
+        Initretrofit().getInstance().getkomen(id)
                 .enqueue(object : Callback<ResponsePosting> {
                     override fun onResponse(
                             call: Call<ResponsePosting>,
