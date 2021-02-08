@@ -1,6 +1,7 @@
 package com.kjbriyan.socialapps
 
 import com.kjbriyan.socialapps.model.ResponseDashboard
+import com.kjbriyan.socialapps.model.ResponseLiked
 import com.kjbriyan.socialapps.model.ResponsePosting
 import retrofit2.Call
 import retrofit2.http.*
@@ -38,6 +39,19 @@ interface ApiInterface {
     fun getkomen(
             @Path("id") id : String
     ): Call<ResponsePosting>
+
+    @POST("liked/btnlike/{id}")
+    fun getbtnlike(
+        @Path("id") username : String
+    ): Call<ResponseLiked>
+
+    @POST("liked/like/{id}")
+    fun postlike(
+        @Path("id") username : String,
+        @Field("liked") liked: String,
+        @Field("id_post") idpost: String,
+
+    ): Call<ResponseStatus>
 
 
     @FormUrlEncoded

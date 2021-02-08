@@ -22,10 +22,15 @@
         android:visibility="visible"
         app:layout_constraintVertical_bias="0.0" >
         <ImageView
-            android:id="@+id/iv_likee"
+            android:id="@+id/iv_nlikee"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/heartb"/>
+        <ImageView
+            android:id="@+id/iv_liked"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/heart"/>
         <com.google.android.material.textview.MaterialTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
