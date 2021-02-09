@@ -40,17 +40,20 @@ interface ApiInterface {
             @Path("id") id : String
     ): Call<ResponsePosting>
 
-    @POST("liked/btnlike/{id}")
+
+    @POST("liked/btnlike/{id}/{id_post}")
     fun getbtnlike(
-        @Path("id") username : String
+        @Path("id") username : String,
+        @Path("id_post") idpost : String
     ): Call<ResponseLiked>
 
+
+    @FormUrlEncoded
     @POST("liked/like/{id}")
     fun postlike(
         @Path("id") username : String,
         @Field("liked") liked: String,
         @Field("id_post") idpost: String,
-
     ): Call<ResponseStatus>
 
 

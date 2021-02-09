@@ -32,9 +32,8 @@ class DetailPresenter(private val mView: DetailView) {
             })
     }
 
-    fun getlike(usrname: String) {
-        mView.onLoading()
-        Initretrofit().getInstance().getbtnlike(usrname)
+    fun getlike(usrname: String,idpost : String) {
+        Initretrofit().getInstance().getbtnlike(usrname, idpost)
             .enqueue(object : Callback<ResponseLiked> {
                 override fun onResponse(
                     call: Call<ResponseLiked>,
@@ -64,7 +63,7 @@ class DetailPresenter(private val mView: DetailView) {
                     response: Response<ResponseStatus>
                 ) {
                     val res = response.body()
-                    mView.onSendSukses(res)
+
                     mView.onHideloading()
                 }
 

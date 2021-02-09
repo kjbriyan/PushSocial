@@ -7,38 +7,6 @@
     android:layout_height="match_parent"
     tools:context=".ui.detailcontent.DetailActivity">
 
-
-    <LinearLayout
-        android:orientation="vertical"
-        android:id="@+id/iv_like"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="16dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:visibility="visible"
-        app:layout_constraintVertical_bias="0.0" >
-        <ImageView
-            android:id="@+id/iv_nlikee"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/heartb"/>
-        <ImageView
-            android:id="@+id/iv_liked"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/heart"/>
-        <com.google.android.material.textview.MaterialTextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="100"
-            android:layout_gravity="center"
-            android:textColor="@color/md_red_500"
-            style="@style/muliBoldNormal"/>
-    </LinearLayout>
     <ScrollView
         android:id="@+id/scrollView2"
         android:layout_width="match_parent"
@@ -84,6 +52,39 @@
                     android:layout_gravity="center"
                     android:textSize="@dimen/_18ssp"
                     android:textColor="@color/black"/>
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:id="@+id/iv_liked"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginLeft="16dp"
+                    android:padding="@dimen/_5sdp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:visibility="visible"
+                    app:layout_constraintVertical_bias="0.0" >
+                    <ImageView
+                        android:id="@+id/iv_nlikee"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/heartb"/>
+                    <ImageView
+                        android:id="@+id/iv_like"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/heart"/>
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/tv_jmllike"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="100"
+                        android:visibility="gone"
+                        android:layout_gravity="center"
+                        android:textColor="@color/md_red_500"
+                        style="@style/muliBoldNormal"/>
+                </LinearLayout>
                 <androidx.cardview.widget.CardView
                     android:layout_margin="@dimen/_10sdp"
                     android:layout_width="match_parent"
@@ -155,7 +156,6 @@
                             android:layout_width="@dimen/_25sdp"
                             android:layout_height="@dimen/_30sdp"
                             android:layout_gravity="center"
-
                             android:layout_marginEnd="8dp"
                             android:layout_marginRight="8dp"
                             android:src="@drawable/paperplane"

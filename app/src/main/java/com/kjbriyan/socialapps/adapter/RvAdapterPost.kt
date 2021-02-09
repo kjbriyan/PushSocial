@@ -34,8 +34,8 @@ class RvAdapterPost(var data: List<DataItemss?>) :
 
             Picasso.get().load(Initretrofit().IMAGE+get?.img).into(itemView.iv_barang)
             itemView.tv_keterangan.text = get?.nama+" \n" +get?.keterangan
-            itemView.tv_like.text = get?.jmlLike
-            itemView.tv_coment.text = get?.jmlCmn
+            itemView.tv_like.text = get?.jmlCmn
+            itemView.tv_coment.text = get?.jmlLike
 
             val uname = Prefs.getString(SharedPrefs.username,"").toString()
 //            for (i in 0 until btn!!.size){
@@ -47,7 +47,7 @@ class RvAdapterPost(var data: List<DataItemss?>) :
                 val i = Intent(itemView.context,DetailActivity::class.java)
                 i.putExtra("id",get?.id)
                 i.putExtra("img",get?.img.toString())
-//                i.putExtra("img",get?.img)
+                i.putExtra("jml",get?.jmlCmn)
                 i.putExtra("ket",get?.keterangan)
                 itemView.context.startActivity(i)
             }

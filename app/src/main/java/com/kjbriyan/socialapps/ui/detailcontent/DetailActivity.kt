@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.EditText
+import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.kjbriyan.socialapps.Initretrofit
@@ -27,23 +28,27 @@ class DetailActivity : AppCompatActivity(), DetailView {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detail)
-
         val presenter = DetailPresenter(this)
         val id = intent.extras?.getString("id").toString()
+        val jmllike = intent.extras?.getString("jml").toString()
         val name = Prefs.getString(SharedPrefs.name, "").toString()
-
+        tv_jmllike.setText(jmllike)
         btn_komen.setOnClickListener {
             val komen = findViewById<EditText>(R.id.et_komenn).text.toString()
             Log.d("sitom", " " + komen)
             presenter.postdata(id, komen, "", name)
         }
 
-
-        iv_nlikee.setOnClickListener {
+        val ivnlike = findViewById<ImageView>(R.id.iv_nlikee)
+        ivnlike.setOnClickListener {
+            Log.d("sitom", " " + name + id)
             presenter.btnlike(name, "1", id)
+            presenter.getlike(name,id)
         }
-        iv_liked.setOnClickListener {
+        iv_like.setOnClickListener {
+            Log.d("sitom", " " + id)
             presenter.btnlike(name, "2", id)
+            presenter.getlike(name,id)
         }
         Picasso.get().load(Initretrofit().IMAGE + intent.extras?.getString("img")).into(iv_post)
         tv_keterangan.text = intent.extras?.getString("ket")
@@ -80,13 +85,19 @@ class DetailActivity : AppCompatActivity(), DetailView {
     }
 
     override fun onLikeCon(t: List<DataIteem>?) {
-        Log.d("status", t.toString())
-        if (t?.get(0)?.liked?.toInt() == 1) {
+//        Log.d("onlikecon", "aa"+t?.get(0)?.liked.toString())
+        if (t!!.isEmpty()) {
             iv_nlikee.visibility = View.VISIBLE
-            iv_liked.visibility = View.GONE
-        } else {
-            iv_liked.visibility = View.VISIBLE
-            iv_nlikee.visibility = View.GONE
+            iv_like.visibility = View.GONE
+        }else{
+            Log.d("onlikecon", t?.get(0)?.liked.toString())
+            if (t?.get(0)?.liked?.toInt() == 2) {
+                iv_nlikee.visibility = View.VISIBLE
+                iv_like.visibility = View.GONE
+            } else {
+                iv_like.visibility = View.VISIBLE
+                iv_nlikee.visibility = View.GONE
+            }
         }
     }
 
@@ -100,6 +111,7 @@ class DetailActivity : AppCompatActivity(), DetailView {
         val id = intent.extras?.getString("id")
         val name = Prefs.getString(SharedPrefs.name, "").toString()
         presenter.getdata(id.toString())
-        presenter.getlike(name)
+        Log.d("statuss", "a"+name.toString())
+        presenter.getlike(name,id.toString())
     }
 }
