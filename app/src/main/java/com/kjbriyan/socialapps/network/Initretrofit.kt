@@ -6,7 +6,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 
 class Initretrofit {
-    val NAMA_DOMAIN = "http://inventory.konseparsitek.com/public/"
+    val NAMA_DOMAIN = "http://192.168.0.125/socialapp/public/"
     val IMAGE= NAMA_DOMAIN+"img/"
 
     private val okHttpClient = OkHttpClient.Builder()

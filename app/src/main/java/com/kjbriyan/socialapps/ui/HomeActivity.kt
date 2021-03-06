@@ -7,7 +7,7 @@ import com.etebarian.meowbottomnavigation.MeowBottomNavigation
 import com.kjbriyan.socialapps.R
 import com.kjbriyan.socialapps.ui.fragment.acount.AcountFragment
 
-import com.kjbriyan.socialapps.ui.fragment.FeedFragment
+import com.kjbriyan.socialapps.ui.fragment.edit.EditFragment
 import com.kjbriyan.socialapps.ui.fragment.dashboard.DashboardFragment
 import kotlinx.android.synthetic.main.activity_home.*
 
@@ -25,7 +25,7 @@ class HomeActivity : AppCompatActivity() {
         navigation.setOnClickMenuListener{
             when(it.id){
                 1 -> setFragment(DashboardFragment.newIntance())
-                2 -> setFragment(FeedFragment.newIntance())
+                2 -> setFragment(EditFragment.newIntance())
                 3 -> setFragment(AcountFragment.newIntance())
 
 

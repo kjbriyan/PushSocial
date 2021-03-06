@@ -2,6 +2,7 @@ package com.kjbriyan.socialapps.ui.registrasi
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Toast
 import com.kjbriyan.socialapps.R
@@ -14,6 +15,7 @@ class RegisActivity : AppCompatActivity(), RegisView {
         setContentView(R.layout.activity_regis)
         val presenter = RegisPresenter(this)
         btn_regis.setOnClickListener {
+            Log.d("regiss",et_pass.text.toString())
             presenter.regis(et_uname.text.toString(),et_pass.text.toString(),et_nama.text.toString())
         }
     }

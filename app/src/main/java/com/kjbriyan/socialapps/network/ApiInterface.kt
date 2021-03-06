@@ -35,11 +35,26 @@ interface ApiInterface {
     @GET("post/indexx")
     fun getPost(): Call<ResponseDashboard>
 
+
+
     @POST("post/index/{id}")
     fun getkomen(
             @Path("id") id : String
     ): Call<ResponsePosting>
 
+    @FormUrlEncoded
+    @POST("post/update/{id}")
+    fun contUpdate(
+        @Path("id") id: String,
+        @Field("nama") nama: String,
+        @Field("keterangan") ket: String,
+        @Field("img") img: String
+    ): Call<ResponseStatus>
+
+    @POST("post/postuser/{id}")
+    fun getpostuser(
+            @Path("id") id : String
+    ): Call<ResponseDashboard>
 
     @POST("liked/btnlike/{id}/{id_post}")
     fun getbtnlike(
@@ -55,6 +70,7 @@ interface ApiInterface {
         @Field("liked") liked: String,
         @Field("id_post") idpost: String,
     ): Call<ResponseStatus>
+
 
 
     @FormUrlEncoded

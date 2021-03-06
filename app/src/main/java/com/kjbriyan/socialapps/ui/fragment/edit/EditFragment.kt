@@ -1,31 +1,22 @@
-package com.kjbriyan.socialapps.ui.fragment.dashboard
+package com.kjbriyan.socialapps.ui.fragment.edit
 
-import android.content.Intent
 import android.os.Bundle
-import android.text.Editable
-import android.text.TextWatcher
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.EditText
 import android.widget.ProgressBar
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.kjbriyan.socialapps.R
+import com.kjbriyan.socialapps.adapter.RvAdapterEdit
 import com.kjbriyan.socialapps.adapter.RvAdapterPost
-import com.kjbriyan.socialapps.model.DataItems
 import com.kjbriyan.socialapps.model.DataItemss
-import com.kjbriyan.socialapps.ui.additem.AddPostActivity
-import com.kjbriyan.socialapps.util.Helper
+import com.kjbriyan.socialapps.ui.fragment.dashboard.DashboardPresenter
 import com.kjbriyan.socialapps.util.SharedPrefs
-import com.like.LikeButton
 import com.pixplicity.easyprefs.library.Prefs
-import kotlinx.android.synthetic.main.fragment_dashboard.view.*
-
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -34,53 +25,42 @@ private const val ARG_PARAM2 = "param2"
 
 /**
  * A simple [Fragment] subclass.
- * Use the [DashboardFragment.newInstance] factory method to
+ * Use the [FeedFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
-class DashboardFragment : Fragment(),DashboardView {
+class EditFragment : Fragment(), EditView {
     // TODO: Rename and change types of parameters
     lateinit var recyclerView: RecyclerView
-    lateinit var adapterr: RvAdapterPost
-    lateinit var  smileButton : LikeButton
+    lateinit var adapterr: RvAdapterEdit
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+
     }
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+            inflater: LayoutInflater, container: ViewGroup?,
+            savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        val view  = inflater.inflate(R.layout.fragment_dashboard, container, false)
-        val btn_add = view.findViewById(R.id.btn_add) as FloatingActionButton
-        btn_add.setOnClickListener {
-            val i = Intent(context, AddPostActivity::class.java)
-            context?.startActivity(i)
-        }
-        recyclerView = view.findViewById(R.id.rv_post)
+        val view = inflater.inflate(R.layout.fragment_feed, container, false)
+
+        recyclerView = view.findViewById(R.id.rv_edit)
         recyclerView.layoutManager = LinearLayoutManager(context)
-
-        val presenter = DashboardPresenter(this)
+        val id = Prefs.getString(SharedPrefs.idUser, "").toString()
+        val presenter = EditPresenter(this)
         activity.let {
-            presenter.getdata()
+            presenter.getdata(id)
         }
-
-//        val level = Prefs.getString(SharedPrefs.level, "")
-//        if (level == "2") {
-//            view.findViewById<FloatingActionButton>(R.id.btn_add).visibility = View.GONE
-//        }
 
         super.onActivityCreated(savedInstanceState)
         return view
     }
 
-
-
     companion object {
-        fun newIntance(): DashboardFragment {
-            return DashboardFragment()
+        fun newIntance(): EditFragment {
+            return EditFragment()
         }
     }
 
@@ -89,12 +69,12 @@ class DashboardFragment : Fragment(),DashboardView {
     }
 
     override fun onHideLoading() {
-        view?.findViewById<ProgressBar>(R.id.pb_dash)?.visibility = View.GONE
+        view?.findViewById<ProgressBar>(R.id.pb_dash)?.visibility = View.INVISIBLE
     }
 
     override fun onDataloaded(results: List<DataItemss>?) {
-        if (results!!.isNotEmpty()) {
-            adapterr = RvAdapterPost(results)
+        if (results != null) {
+            adapterr = RvAdapterEdit(results)
             activity.let {
                 with(recyclerView) {
                     adapter = adapterr
@@ -103,7 +83,7 @@ class DashboardFragment : Fragment(),DashboardView {
             }
 
         } else {
-            Log.d("DashboardFragment", "null data")
+            Log.d("EditFragment", "null data")
         }
     }
 
@@ -112,9 +92,10 @@ class DashboardFragment : Fragment(),DashboardView {
     }
     override fun onStart() {
         super.onStart()
-        val presenter = DashboardPresenter(this)
+        val presenter = EditPresenter(this)
+        val id = Prefs.getString(SharedPrefs.idUser, "").toString()
         activity.let {
-            presenter.getdata()
+            presenter.getdata(id)
 
         }
     }

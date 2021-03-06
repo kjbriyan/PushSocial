@@ -86,17 +86,22 @@ class DetailActivity : AppCompatActivity(), DetailView {
 
     override fun onLikeCon(t: List<DataIteem>?) {
 //        Log.d("onlikecon", "aa"+t?.get(0)?.liked.toString())
-        if (t!!.isEmpty()) {
-            iv_nlikee.visibility = View.VISIBLE
-            iv_like.visibility = View.GONE
-        }else{
-            Log.d("onlikecon", t?.get(0)?.liked.toString())
-            if (t?.get(0)?.liked?.toInt() == 2) {
+        if (t?.size == null) {
+            Log.d("onlikecon", "is null")
+        }
+        else{
+            if (t!!.isEmpty()) {
                 iv_nlikee.visibility = View.VISIBLE
                 iv_like.visibility = View.GONE
             } else {
-                iv_like.visibility = View.VISIBLE
-                iv_nlikee.visibility = View.GONE
+                Log.d("onlikecon", t?.get(0)?.liked.toString())
+                if (t?.get(0)?.liked?.toInt() == 2) {
+                    iv_nlikee.visibility = View.VISIBLE
+                    iv_like.visibility = View.GONE
+                } else {
+                    iv_like.visibility = View.VISIBLE
+                    iv_nlikee.visibility = View.GONE
+                }
             }
         }
     }
