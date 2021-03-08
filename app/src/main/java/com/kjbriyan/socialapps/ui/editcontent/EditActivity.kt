@@ -19,15 +19,15 @@ import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import com.kjbriyan.socialapps.Initretrofit
 import com.kjbriyan.socialapps.R
 import com.kjbriyan.socialapps.ResponseStatus
 import com.kjbriyan.socialapps.ui.additem.AddPostPresenter
 import com.kjbriyan.socialapps.util.Helper
 import com.kjbriyan.socialapps.util.SharedPrefs
 import com.pixplicity.easyprefs.library.Prefs
+import com.squareup.picasso.Picasso
 import es.dmoral.toasty.Toasty
-import kotlinx.android.synthetic.main.activity_add_post.*
-import kotlinx.android.synthetic.main.activity_add_post.iv_barang
 import kotlinx.android.synthetic.main.activity_add_post.pb_add
 import kotlinx.android.synthetic.main.activity_edit.*
 import java.io.*
@@ -58,6 +58,7 @@ class EditActivity : AppCompatActivity(),EditView {
         val judul = intent.extras?.getString("judul").toString()
         et_judul.setText(judul)
         et_ket.setText(ket)
+        Picasso.get().load(Initretrofit().IMAGE+imge).into(iv_edit)
     }
 
     private fun actionclick(){
@@ -65,13 +66,13 @@ class EditActivity : AppCompatActivity(),EditView {
         val iduser = Prefs.getString(SharedPrefs.idUser, "").toString()
         findViewById<Button>(R.id.btn_update)?.setOnClickListener {
             val bitmap: Bitmap
-            iv_barang?.setDrawingCacheEnabled(true)
-            bitmap = iv_barang!!.drawingCache
+            iv_edit?.setDrawingCacheEnabled(true)
+            bitmap = iv_edit!!.drawingCache
             val img = Helper().getEncoded64ImageStringFromBitmap(bitmap).toString()
             Log.d(TAG,"aa"+ iduser)
             presenter.updateItem( id_post,et_judul.text.toString(), et_ket?.text.toString(), img)
         }
-        iv_barang.setOnClickListener {
+        iv_edit.setOnClickListener {
             val dialogitem =
                 arrayOf<CharSequence>("Camera", "Galery")
             val builder = AlertDialog.Builder(this)
@@ -120,7 +121,7 @@ class EditActivity : AppCompatActivity(),EditView {
                             contentResolver, imgUri
                         )
                         tmpFile(bitmap)
-                        iv_barang.setImageBitmap(bitmap)
+                        iv_edit.setImageBitmap(bitmap)
                         val img = Helper().getEncoded64ImageStringFromBitmap(bitmap)
 
                         Log.d(TAG, "uri bitmap " + bitmap.toString())
@@ -137,7 +138,7 @@ class EditActivity : AppCompatActivity(),EditView {
                         contentResolver, imgUri
                     )
                     tmpFile(thumbnail)
-                    iv_barang.setImageBitmap(thumbnail)
+                    iv_edit.setImageBitmap(thumbnail)
 
                     Log.d(TAG, "uri bitmap " + thumbnail.toString())
 
